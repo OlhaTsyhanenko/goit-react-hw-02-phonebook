@@ -1,5 +1,6 @@
 import { Component } from "react";
 import shortid from "shortid";
+import styles from "./contactForm.module.css";
 
 class ContactForm extends Component {
   state = {
@@ -32,7 +33,7 @@ class ContactForm extends Component {
     const { handleSubmit, nameInputId, handleChange, numberInputId } = this;
     const { name, number } = this.state;
     return (
-      <form onSubmit={handleSubmit}>
+      <form className={styles.contactForm} onSubmit={handleSubmit}>
         <label htmlFor={nameInputId}>
           Name
           <input
@@ -44,6 +45,7 @@ class ContactForm extends Component {
             required
             onChange={handleChange}
             id={nameInputId}
+            className={styles.contactName}
           />
         </label>
         <label htmlFor={numberInputId}>
@@ -57,9 +59,12 @@ class ContactForm extends Component {
             required
             onChange={handleChange}
             id={numberInputId}
+            className={styles.contactNumber}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button type="submit" className={styles.btn}>
+          Add contact
+        </button>
       </form>
     );
   }
